@@ -24,7 +24,9 @@
     "@electron-toolkit/preload": "^3.0.2",
     "@electron-toolkit/utils": "^4.0.0",
     "axios": "^1.13.2",
+    "cors": "^2.8.5",
     "electron-updater": "^6.3.9",
+    "marked": "^17.0.1",
     "pinia": "^3.0.4"
   },
   "devDependencies": {
@@ -33,7 +35,7 @@
     "@electron-toolkit/tsconfig": "^2.0.0",
     "@types/node": "^22.19.1",
     "@vitejs/plugin-vue": "^6.0.2",
-    "electron": "^39.2.6",
+    "electron": "^39.2.7",
     "electron-builder": "^26.0.12",
     "electron-vite": "^5.0.0",
     "eslint": "^9.39.1",
