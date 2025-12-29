@@ -46,3 +46,12 @@ function randomColor(): string {
   const colors = ['#00b894','#fdcb6e','#e17055','#6c5ce7','#a29bfe']
   return colors[Math.floor(Math.random() * colors.length)]
 }
+/** 根据关键字搜索项目（支持名字/路径） */
+export async function searchProjects(token: string, keyword: string) {
+  const res = await axios.get<any[]>(`${BASE}/projects?search=${encodeURIComponent(keyword)}&membership=true&per_page=20`, {
+    headers: { 'PRIVATE-TOKEN': token }
+  })
+  console.log(res)
+  // 只需要 id + name
+  return res.data.map((p: any) => ({ id: p.id, name: p.name }))
+}
