@@ -13,6 +13,9 @@ asarUnpack:
   - resources/**
 win:
   executableName: gitlab-kanban-vue
+  target: nsis
+  icon: build/icon.ico
+  requestedExecutionLevel: asInvoker
 nsis:
   artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}
