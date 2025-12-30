@@ -13,9 +13,21 @@ function createWindow(): void {
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
-      sandbox: false
+      sandbox: false,
     }
   })
+
+  // ========= 生产环境按 F12 打开控制台 =========
+mainWindow.webContents.on('before-input-event', (_, input) => {
+  // F12 打开 DevTools
+  if (input.key === 'F12') {
+    mainWindow.webContents.openDevTools()
+  }
+  // Ctrl+Shift+I 也行
+  if (input.key === 'I' && input.control && input.shift) {
+    mainWindow.webContents.openDevTools()
+  }
+})
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
